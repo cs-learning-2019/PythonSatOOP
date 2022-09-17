@@ -1,0 +1,22 @@
+1) Introductions. Why did you take this course? Describe your past programming experience.
+
+2) Go through course outline/intro
+
+3) Class rules
+
+4) Class website
+
+5) Where do we write code? https://www.programiz.com/python-programming/online-compiler/
+
+6) Explain how homework is going to work. Provide google docs urls.
+
+7) Reivew data types (https://www.w3schools.com/python/python_datatypes.asp)
+
+8) Review If Statements
+
+9) Review For Loops and While Loops
+
+10) Additional problems if we have extra time
+
+
+

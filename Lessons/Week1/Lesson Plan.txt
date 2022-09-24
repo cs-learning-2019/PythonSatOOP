@@ -4,7 +4,7 @@
 
 3) Class rules
 
-4) Class website
+4) Class website (https://github.com/cs-learning-2019/PythonSatOOP)
 
 5) Where do we write code? https://www.programiz.com/python-programming/online-compiler/
 

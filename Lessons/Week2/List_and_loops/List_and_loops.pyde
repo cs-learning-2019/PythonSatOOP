@@ -6,11 +6,11 @@
 ################# Simple 1D List and the basics #################
 print("-----------------------------------------------------------------------------")
 ages = [8, 9, 1, 5]
-print(ages[0])
-print(ages[-1])
-print(ages[2])
+print(ages[0]) # --> 8
+print(ages[-1]) # --> 5
+print(ages[2]) # --> 1
 ages[2] = 1000
-print(ages[2])
+print(ages[2]) # --> 1000
 # print(ages[10]) not good since we don't have index 10
 
 for num in ages:
@@ -31,10 +31,10 @@ You have a 1D list of numbers. Write some code that changes the list so every nu
 """
 numbers = [1, 2, 3, 4, 5, 6, 7]
 
-# SOME CODE HERE TO DOUBLE THE NUMBERS
+for index in range(len(numbers)):
+    numbers[index] = numbers[index] * 2
 
 print(numbers)  #--> We expect to see [2, 4, 6, 8, 10, 12, 14]
-
 
 
 # How can we delete and insert into a Python List?
@@ -51,12 +51,12 @@ print(animals)
 ########################## 2D Python List ##########################
 print("-----------------------------------------------------------------------------")
 students_per_room = [["A", "B", "C"], ["X", "Y", "Z"], ["F", "G", "H"]]
-print(students_per_class[1][2])
-print(students_per_class[0][0])
-print(students_per_class[-1][-1])
+print(students_per_room[1][2]) # --> Z
+print(students_per_room[0][0]) # --> A
+print(students_per_room[-1][-1]) # --> H
 
 # How can we print every letter out?
-for room in students_per_room:
+for room in students_per_room: 
     for student in room:
         print("Hi I am student: " + student)
 
@@ -68,7 +68,13 @@ Given a 1D list of positive integers create a 2D list with 2 sublist. The first 
 numbers and the second contains the odd numbers.
 """
 numbers = [2, 3, 4, 5, 6, 7, 8, 9]
-
+new_list = [[], []]
+for number in numbers:
+    if number % 2 == 0:
+        new_list[0].append(number)
+    else:
+        new_list[1].append(number)
+print(new_list)
 
 
 

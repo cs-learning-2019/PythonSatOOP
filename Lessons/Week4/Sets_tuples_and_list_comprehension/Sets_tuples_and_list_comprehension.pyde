@@ -18,7 +18,7 @@ print("Is Mark in the set? --> " + str("Mark" in names))
 
 # We can do intersections, union and difference operations
 print("------------------------------------------------------------------------")
-ages1 = {1, 2, 3, 4, 5, 6, 1, 2}
+ages1 = {1, 2, 3, 4, 5, 6}
 ages2 = {5, 6, 7, 8}
 print(ages1)
 print(ages2)
@@ -36,7 +36,7 @@ print("------------------------------------------------------------------------"
 things = (2, 6, "John", True, "John", 2, 7, 9)
 print(things)
 print("Is John in things? --> " + str("John" in things))
-print(things[1])
+print(things[2])
 #things[1] = 100 # This will not work since we can not change items in a tuple
 
 # List Comprehension
@@ -59,7 +59,7 @@ more_nums = [number ** 2 for number in range(11) if number % 2 == 0]
 print(more_nums)
 
 # The general form is...
-# newlist = [<result> for <item> in <iterable> if <condition>]
+# <variable> = [<result> for <item> in <iterable> if <condition>]
 
 # Here is a more complicated example involving nested list comprehension
 print("------------------------------------------------------------------------")
@@ -101,11 +101,11 @@ print("------------------------------------------------------------------------"
 
 print("------------------------------------------------------------------------")
 # For each case decide if we should use a tuple or list to store the collection
-# A bunch of age groups that will be used for an experiment -->
-# The planets in our solar system -->
-# Live information about a user's failed login attempt -->
-# Live information about the enemies in a game -->
-# The primary colors -->
+# A bunch of age groups that will be used for an experiment --> tuple
+# The planets in our solar system --> tuple
+# Live information about a user's failed login attempt --> list
+# Live information about the enemies in a game --> list
+# The primary colors --> tuple
 
 print("------------------------------------------------------------------------")
 # We have a 2D list of numbers

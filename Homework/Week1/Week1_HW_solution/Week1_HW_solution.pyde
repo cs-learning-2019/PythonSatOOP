@@ -14,7 +14,7 @@ if number <= 1:
     is_prime = False
     
 for num in range(2, number):
-    if (number % num == 0):
+    if (number % num == 0 and number != num):
         is_prime = False
         break;
 

@@ -92,11 +92,18 @@ print(flat_list)
 
 # Sample problems to work on
 print("------------------------------------------------------------------------")
-# Dogs like even numbers between 2 and 10 inclusive
-# Cats like all numbers between 0 and 100
+# Dogs like numbers between 2 and 10 inclusive
+# Cats like all numbers between 0 and 100 inclusive
 # Birds like the number 4, 5 and 20
 # Rats like all numbers between 4 and 19 inclusive
 # Find all the numbers that are liked by all animals
+dogs = {2, 3, 4, 5, 6, 7, 8, 9, 10}
+cats = {number for number in range(101)}
+birds = {4, 5, 20}
+rats = {number for number in range(4, 20)}
+    
+print(dogs.intersection(cats).intersection(birds).intersection(rats))
+
 
 
 print("------------------------------------------------------------------------")
@@ -112,6 +119,8 @@ print("------------------------------------------------------------------------"
 # We want to go through the whole list and collect all the positive numbers into a 1D list
 # Please use list comprehension
 sample_2d_list = [[-1, 2, 6, 4], [0, -5, -2, 1], [5, 9], [0, -9, -7]]
+positive_list = [number for row in sample_2d_list for number in row if number > 0]
+print(positive_list)
 
 
 

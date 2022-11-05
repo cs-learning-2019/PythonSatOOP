@@ -1,7 +1,7 @@
-# Focus Learning Python Level 1
+# Focus Learning Python OOP
 # Functions part 1
 # Kavan Lam
-# June 5, 2021
+# Nov 5, 2022
 
 # Ex 1
 # Think of a function as a factory which will make something or do something.
@@ -41,8 +41,24 @@ printLine(2)
 
 # Skill 3 Returning
 print("-----------------------------------------")
-def areaRect(side_length, side_width):
-    return side_length * side_width
-    
-result = areaRect(2, 5)
+def areaRect(l, w):
+    print(l*w)
+    return l*w
+
+result = areaRect(2, 3)
 print(result)
+
+# Practice
+def box_maker(num):
+    # First row
+    print("* " * num)
+    
+    # In between the first and last rows
+    for i in range(num - 2):
+        print("*" + " " * (num - 2) + "*")
+    
+    # Last row
+    print("* " * num)
+    
+box_maker(8)
+    

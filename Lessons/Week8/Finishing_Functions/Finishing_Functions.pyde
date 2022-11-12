@@ -8,7 +8,7 @@ print("-------------------------------")
 def try_me(x=5, y=2):
     return x - y
 
-print(try_me(y=5))
+print(try_me(y=10, x=2))
 
 print("-------------------------------")
 def double_me(x = 2, y = 1):
@@ -56,6 +56,25 @@ Write a function that takes 8 numbers. The first 4 numbers are the top left posi
 of a rectangle followed by the length and width. The last 4 numbers is the same but for a different rectangle.
 The function will return true if the rectangles hit each other and false otherwise
 """
+print("--------------------------------")
+def overlap(x1, y1, l1, w1, x2, y2, l2, w2):
+    g1a = x1
+    g1b = x1 + l1
+    
+    g2a = x2
+    g2b = x2 + l2
+    
+    r1a = y1
+    r1b = y1 + w1
+    
+    r2a = y2
+    r2b = y2 + w2
+    
+    if max(g1a, g2a) <= min(g1b, g2b) and max(r1a, r2a) <= min(r1b, r2b):
+        return True
+    else:
+        return False
+print(overlap(100, 50, 50, 60, 50, 80, 75, 40))
 
 """
 Write a function that takes in a string which represents a code. The function will return True if the code is valid

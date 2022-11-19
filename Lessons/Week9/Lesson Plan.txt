@@ -1,0 +1,3 @@
+1) Take up Functions HW from last week
+2) Finish learning about functions
+3) Start learning about objects and Python Classes

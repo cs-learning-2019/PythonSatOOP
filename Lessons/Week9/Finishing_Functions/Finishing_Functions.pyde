@@ -84,7 +84,33 @@ larger than 13 and also the digits must appear in increasing order (ie/ From lef
 increasing, but 57910 is not). If the first letter is not an "A" or "B" then the 5 digits after only have to add up to
 less than or equal to 23.
 """
+def starts_with_capital_letter(code):
+    capital_letters = ["A", "B", "C", "D", ......]
+    if code[0] in capital_letters:
+        return True
+    else:
+        return False
 
-"""
-write a function to compute the factorial of a number
-"""
+def has_5_digits(code):
+    if len(code) == 6 and code[1:].isnumeric():
+        return True
+    else:
+        return False
+
+def no_spaces_no_punctuation(code):
+    punctuation = [",", ".", .....]
+    
+    for punc in punctuation:
+        if punc in code:
+            return False
+        
+    if " " not in code:
+        return True
+    else:
+        return False
+
+def main_function(code):
+    if starts_with_capital_letter(code) and has_5_digits(code) and no_spaces_no_punctuation(code) and blah and blah:
+        return true
+    else:
+        return false

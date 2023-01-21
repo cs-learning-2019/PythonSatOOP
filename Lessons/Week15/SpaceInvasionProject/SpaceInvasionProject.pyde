@@ -9,6 +9,9 @@
 # 2) Make the aliens spawn faster as the player gets more score
 # 3) Add a nuke to the game that kills all alien ships
 # 4) Make the small alien ships move in a non straight line so it is harder to hit (need to make sure the ship does not leave the screen)
+# 5) Add a slow down time ability
+# 6) Add a ability for infinite ammo 
+# 7) Main menu screen
 #########
 
 from <------ Import something -------> import *
@@ -21,7 +24,7 @@ earth = <------ Create a Earth object ------->
 humanShip = HumanShip(350, 800, 300)
 bullets = []
 alienShips = []
-score = <------ Variable to keep track of the score ------->
+score = 0
 smallAlienSpawnTimer = 45
 largeAlienSpawnTimer = 400
 isGameOver = <------ Whether or not the game is over. This is a boolean. ------->
@@ -44,7 +47,7 @@ def draw():
         fill(255, 255, 255)
         textSize(20)
         text("Score: " + str(<----- The score ----->), 10, 30)
-        text("Small Ammo: " + str(<----- The ammount of small ammo we have ----->), 10, 60)
+        text("Small Ammo: " + str(humanShip.smallAmmo), 10, 60)
         text("Large Ammo: " + str(<----- The ammount of large ammo we have ----->), 10, 90)
         text("Ship Health: " + str(<----- The ammount of health we have ----->), 10, 120)
         
@@ -54,7 +57,7 @@ def draw():
         
         # Draw the alien ships
         for alienShip in alienShips:
-            <------ Draw the alien ship ------>
+            alienShip.<-------something------->
         
         # Draw the bullets
         for <------ Fill this in ------>:
@@ -64,12 +67,12 @@ def draw():
         # Note: there are much better ways to do this but we do it like this for simplicity
         newBullets = []
         for bullet in bullets:
-            didBulletHit = <-------- A boolean --------->
+            didBulletHit = False
             newAlienShips = []
             for alienShip in alienShips:
                 if isOverlapping(bullet.x, bullet.x + bullet.length, alienShip.x, alienShip.x + alienShip.size) and isOverlapping(bullet.y, bullet.y + bullet.width, alienShip.y, alienShip.y + alienShip.size):
                     alienShip.takeDamage(bullet.damage)
-                    didBulletHit = <-------- A boolean --------->
+                    didBulletHit = True
                     if alienShip.health > 0:
                         <------- Do something so that the alien ship does not disappear ------->
                     else:
@@ -88,6 +91,9 @@ def draw():
         # Process aliens hitting Earth
         # An alien ship has hit Earth if it's y position is equal to or more than 860
         <--------------- A bunch of code here ------------------>
+        # Loop over the list of aliens
+        # For each alien check if the y position is equal to or more than 860 then earth takes damage
+        # If the alien has hit earth then the alien ships dissapears otherwise it remain active in the game
         
         # Process aliens hitting human ship
         newAlienShips = []
@@ -99,8 +105,9 @@ def draw():
         alienShips = newAlienShips
         
         # Process if the game is over (human ship or Earth has 0 or less than 0 health)
-        if <----------- Fill this in ------------------>:
-            isGameOver = <------- A boolean ------->
+        # if humanShip.health <= 0 or <-------- Check Earth's health-------->
+        if <----------- Check the health --------------->:
+            isGameOver = True
         
         # Move bullets
         newBullets = []
@@ -117,9 +124,9 @@ def draw():
         bullets = newBullets
         
         # Move alien ships
-        for <----- Fill this in ------>:
-            <------- Move the alien ship ------->
-        
+        for alienShip in alienShips:
+            alienShip.<-------something------->
+            
         # Spawn aliens
         smallAlienSpawnTimer = smallAlienSpawnTimer - 1
         largeAlienSpawnTimer = largeAlienSpawnTimer - 1
@@ -138,12 +145,12 @@ def draw():
 def keyPressed():
     global <--- Fill this in --->
 
-    if <---- If the Z button is pressed on the keyboard ---->:
+    if key == "Z" or key == "z":
         humanShip.fireSmallBullet(bullets)
     elif <---- If the X button is pressed on the keyboard ---->:
         humanShip.fireLargeBullet(bullets)
 
 # Helpful function to figure out if two intervals overlap
 def isOverlapping(a1, b1, a2, b2):
-    <--- Write some code here to make this function work (I can do it in one line but you can use more lines if you need) --->
+    return max(a1, a2) <= min(b1, b2)
     

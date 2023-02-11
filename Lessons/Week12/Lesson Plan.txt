@@ -1,4 +1,0 @@
-1) Special method in classes and working with multiple classes
-
-2) Work on Inheritance (https://www.javatpoint.com/inheritance-in-python has some nice pictures)
-- Do example involving video game characters and Weapon and Enemy

@@ -1,22 +1,29 @@
-1) Introductions. Why did you take this course? Describe your past programming experience.
+1) Complex user interactions
+	- Detecting and handling multiple key presses
+	- Hold shift to run
+	- Left click, right right, mouse scroll https://processing.org/reference/mouseWheel_.html
+	- Buttons as classes
 
-2) Go through course outline/intro
+2) Images in processing
+	- This is pretty easy
 
-3) Class rules
+3) Sounds in processing
+	- Can we build a class to handle all the sounds?
+	- This class should be responsible for loading all of the sounds we will be using and exposing methods to play and stop sounds
 
-4) Class website (https://github.com/cs-learning-2019/PythonSatOOP)
+4) Collision Detection and Resolution
+	- point and circle
+	- point and rectangle
+	- circle and circle
+	- rectangle and rectangle
+	- rectangle and circle
+	- ball bouncing off a horizontal or vertical wall
+	- ball bouncing off slanted walls? https://3dkingdoms.com/weekly/weekly.php?a=2
 
-5) Where do we write code? https://www.programiz.com/python-programming/online-compiler/
-
-6) Explain how homework is going to work. Provide google docs urls.
-
-7) Reivew data types (https://www.w3schools.com/python/python_datatypes.asp)
-
-8) Review If Statements
-
-9) Review For Loops and While Loops
-
-10) Additional problems if we have extra time
+This will be useful
+There is overlap when a line starts before another line ends
+def isOverlapping(a1, b1, a2, b2):
+    return max(a1, a2) <= min(b1, b2)
 
 
 

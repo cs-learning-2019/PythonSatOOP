@@ -1,0 +1,17 @@
+1) Take up last week's homework
+
+2) Inheritance, encapsulation, polymorphism and abstraction 
+https://www.indeed.com/career-advice/career-development/what-is-object-oriented-programming#:~:text=Object%2Doriented%20programming%20has%20four,of%20an%20OOP%20computer%20program.
+
+3) Work on Inheritance (https://www.javatpoint.com/inheritance-in-python has some nice pictures)
+- Do example involving video game characters and Weapon and Enemy
+
+4) Work on encapsulation
+- Do an example involving Bank information https://www.geeksforgeeks.org/encapsulation-in-python/
+
+5) Work on polymorphism
+- This website has some great simple examples https://www.programiz.com/python-programming/polymorphism
+
+6) Work on abstraction
+- This website has some good examples https://www.geeksforgeeks.org/abstract-classes-in-python/
+- Abstraction does not work in Processing so we will not use it in future lessons

@@ -1,0 +1,89 @@
+1) chatGPT
+	- It is a highly sophisticated chatbot that has the ability to provide intelligent
+	  responses to a variety of prompts.
+	- Most notably, chatGPT is able to answer coding related questions and even write code
+	- To be clear it is not just doing a Google Search in the background and pasting the code
+	  but is indeed generating code of its own.
+	- The ability to write code on its own has brought up the question of whether or not chatGPT
+	  could replace the need for actual programmers/software engineers.
+	- Here are the reasons why chatGPT won't be replacing human programmers/software engineers anytime soon
+
+A) It is currently not advanced enough to code bug-less and correct code at larger scales. For example,
+try asking chatGPT to code a replcement for the Mircosoft Windows Operating system. It won't be able to.
+
+B) It will be hard for chatGPT to code hardware dependent software due to the fact that hardware is also chaning rapidly
+
+C) At best what will happen is we stop mass hiring software engineers since chatGPT can do most of the easy work.
+Currently companies are hiring a lot of software engineers (to the point where we are currently firing for example, Amazon).
+ChatGPT won't replace the job of software engineers but we will need less. This means only the truly talanted engineers will be hired.
+Note: even if this is the case it won't be happening anytime soon.
+
+D) ChatGPT and a lot of the cutting edge AI tech is based on the same fundamental idea of having to train on a lot of data.
+One of the biggest limitations of AI in the context of being able to produce code is that they are limited to existing code.
+For instance, if I were to design a completly new programming language or API then ChatGPT will completly fail as it has never seen
+anything like it before. 
+
+E) You can probably use chatGPT to code a whole webpage for you but what if there are fine adjustments that need to be made but
+chatGPT is unable to? Or what if the UI does not function exactly the way we want it to? Well, we will need a real software engineer to
+make the fixes. Typically speaking, work that has to deal with design and styling would be much harder for AI. If there are unique UI elements
+and designs then I highly doubt chatGPT will be able to handle it. The reason being is that if the design is unique there wouldn't be any existing
+data that it could have used to train on and thus will not even understand what you need.
+
+F) As another exmaple, we will still need software engineers to design the infrastructure and data model. If you tell chatGPT to code a piece of
+software to manage customer data on Amazon it might be able to do it but perhaps not to the exact requirments that the company needs.
+There are many ways in which the data model can be setup and chatGPT may not code up the most optimal data model for your company needs. 
+In otherwords, you still need a talented software engineer to design the infrastructure and enter it into chatGPT. 
+
+G) One of the biggest downsides of chatGPT is chatGPT does not understand specific company business logic so can't be used to code up core code.
+You will first need to teach and allow chatGPT to learn the company specific business logic (which can be challenging and costly). For example,
+at the company you work for you have different customer account types which is called CATs. Depending on the CAT we need to bill the customer acordingly
+however, billing info needs to be an empty object for trial types otherwise the code crashes. chatGPT will first need to understand what CAT is
+which is won't since that is company specific. Also it will need to know the types that are considered trial which it won't. Also it will need to know to
+set the billing info object to empty which chatGPT can do but you still need explictly tell it.
+
+H) How can we trust what chatGPT produces? Unless we can 100% prove that the code chatGPT produces is correct we
+still need software engineers to test, read and verify that the code is correct. Nobody who actually cares about their company
+would ever release code without knowing whether or not it works. Releasing bad code can and will ruin your company/product.
+
+I) I highly doubt chatGPT will do very well in situations that require cross company coding. There are many cases where one company needs to
+code something that will integrate into another companies product. chatGPT will have a hard time with this since there will be company specific
+business logic but also a protocole that must be agreed upon. Unless chatGPT is able to learn and understand the business logic and protocoles
+it won't be very useful. In other words, you still need software engineers to design the software to meet cross company requirments. 
+As an example, your company has a partnership with Google to developer a new feature. Google writes some functions/classes/methods and you
+need to write code that uses what Google made (Google is not going to release the source code to you). Because these functions/classes/methods are
+completly new chatGPT will be unable to code for you.
+
+J) In my opnion chatGPT is really just a replacement for Google searching. A good software engineer will know how use chatGPT to allow them to
+finish coding project faster. Of course, there might come a point where AI can code independently (perhaps with minial human interactions) but that is still many many years away.
+Until then software engineering jobs are not going anywhere. 
+
+
+2) Sounds in processing
+	- Can we build a class to handle all the sounds?
+	- This class should be responsible for loading all of the sounds we will be using and exposing methods to play and stop sounds
+
+3) Collision Detection and Resolution
+	- point and circle
+	- point and rectangle
+	- circle and circle
+	- rectangle and rectangle
+	- rectangle and circle
+	- ball bouncing off a horizontal or vertical wall
+This will be useful
+There is overlap when a line starts before another line ends
+def isOverlapping(a1, b1, a2, b2):
+    return max(a1, a2) <= min(b1, b2)
+
+4) Vectors
+	- What are vectors?
+	- Do example with direction and velocity vectors and normal vectors and unit vectors
+	- sin and cos and cosine law
+	- Dot product and projections (prove dot product formula first then prove projection)
+	https://adotb.xyz/proof-of-the-dot-product-formula/
+	https://math.stackexchange.com/questions/1064465/what-is-the-difference-between-the-dot-product-and-the-scalar-projection
+	- ball bouncing off slanted walls? https://3dkingdoms.com/weekly/weekly.php?a=2 and https://www.fabrizioduroni.it/2017/08/25/how-to-calculate-reflection-vector/
+
+
+
+
+

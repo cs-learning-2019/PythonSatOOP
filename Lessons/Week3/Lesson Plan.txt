@@ -1,0 +1,38 @@
+1) Collision Detection and Resolution
+	- point and circle
+	- point and rectangle
+	- circle and circle
+	- rectangle and rectangle
+	- rectangle and circle
+
+This will be useful
+There is overlap when a line starts before another line ends
+def isOverlapping(a1, b1, a2, b2):
+    return max(a1, a2) <= min(b1, b2)
+
+2) Vectors
+	- What are vectors?
+		https://mathinsight.org/vector_introduction and https://www.mathsisfun.com/algebra/vectors.html
+	- sin and cos and cosine law
+		https://www.mathsisfun.com/algebra/trig-cosine-law.html
+	- What are unit vectors and how do we compute them? Why are they useful (hint: we want to decouple the magnitude from direction)?
+	- Code a ball being shoot out from a cannon but by using a speed and unit direction vector. This involves computing a unit direction vector.
+	- Explain how balls can bounch off horizontal and vertical walls
+	- Dot product and projections (prove dot product formula first then prove projection)
+		https://adotb.xyz/proof-of-the-dot-product-formula/
+		https://math.stackexchange.com/questions/1064465/what-is-the-difference-between-the-dot-product-and-the-scalar-projection
+	- How to define a 2D wall. We need to cover slope, slope vector, unit normal vector
+		- How to compute slope and slope vector
+		- How to compute the unit normal vector (hint [a, b] --> [b, -a])
+		- Use dot product to prove that our method of finding the unit normal vector is correct
+		- Create a Wall class which has a starting and ending point along with a width. The constructor should initialize the slope and unit normal vectors.
+	- How to find the distance from a point to a line. Start with horizontal and vertical lines then try slanted lines.
+		- Extend this to explain how to detect when a ball hits the wall
+	- Ball bouncing off slanted walls?
+		https://3dkingdoms.com/weekly/weekly.php?a=2
+		https://www.fabrizioduroni.it/2017/08/25/how-to-calculate-reflection-vector/
+
+
+
+
+

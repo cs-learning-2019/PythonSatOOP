@@ -1,11 +1,1 @@
-1) Take the code of a cannon shooting a ball and edit the code so that the ball
-   bounces off the top, bottom, left and right sides of the screen
-
-2) Now instead of using the sides of the screen I want you to use the Wall class we created in class to replace
-   the bottom, top, left and right sides of the screen with actual walls. Edit your code so that the ball bounces off these 4 walls.
-   Note: you will need to code the hit detection between a circle and a wall. The algorithm was covered in class.
-
-3) In class we talked about how we can detect if a circle (ball) hits the wall, but how can we detect if a rectangle hits the wall?
-   Update the code so that the cannon is shooting a square instead of a circle and make the sqaure bounce off the 4 walls you created in part 2
-   Hint: Think about an approximation technique.
-   Hint: It would be best to make a Square class.
+No homework

@@ -1,0 +1,43 @@
+1) Vectors
+	- What are vectors?
+		https://mathinsight.org/vector_introduction and https://www.mathsisfun.com/algebra/vectors.html
+
+	- sin and cos and cosine law
+		https://www.mathsisfun.com/algebra/trig-cosine-law.html
+
+	- What are unit vectors and how do we compute them? Why are they useful (hint: we want to decouple the magnitude from direction)?
+
+	- What kinds of vectors are useful for us? Velocity, displacement, direction and position.
+		- We can define a velocity by using a direction vector and speed.
+		- Displacement is the change in position.
+		- This isn't required in Math but for us the direction vector should always be a unit vector
+		- We should never have the position vector as a unit vector. The same applies to displacement and velocity.
+		- The reason for this is because the magnitude of these vectors are important.
+	
+	- Dot product and proof of dot product formula
+		https://adotb.xyz/proof-of-the-dot-product-formula/
+
+	- Projections and how to calculate it
+		https://math.stackexchange.com/questions/1064465/what-is-the-difference-between-the-dot-product-and-the-scalar-projection
+
+	- Code a ball being shoot out from a cannon but by using a speed and a direction vector (should be a unit vector).
+
+	- Explain how balls can bounch off horizontal and vertical walls (Students will code this in the homework for the first question)
+
+	- How to define a 2D wall. We need to cover slope, slope vector, unit normal vector
+		- How to compute slope vector (basically a direction vector for the line)
+		- How to compute the unit normal vector (hint [a, b] --> [b, -a])
+		- Use dot product to prove that our method of finding the unit normal vector is correct
+		- Create a Wall class which has a starting and ending point along with a width. The constructor should initialize the slope and unit normal vectors.
+
+	- How to find the distance from a point to a line. Start with horizontal and vertical lines then try slanted lines.
+		- Extend this to explain how to detect when a ball hits the wall
+
+2) [Most likely will do this next week] Ball bouncing off slanted walls?
+	https://3dkingdoms.com/weekly/weekly.php?a=2
+	https://www.fabrizioduroni.it/2017/08/25/how-to-calculate-reflection-vector/
+
+
+
+
+

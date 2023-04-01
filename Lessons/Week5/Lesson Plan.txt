@@ -1,0 +1,24 @@
+1) Vectors
+	- Quick review of dot product and projection
+
+	- Code a ball being shoot out from a cannon but by using a speed and a direction vector (should be a unit vector).
+
+	- Explain how balls can bounch off horizontal and vertical walls (Students will code this in the homework for the first question)
+
+	- How to define a 2D wall. We need to cover slope, slope vector, unit normal vector
+		- How to compute slope vector (basically a direction vector for the line)
+		- How to compute the unit normal vector (hint [a, b] --> [b, -a])
+		- Use dot product to prove that our method of finding the unit normal vector is correct
+		- Create a Wall class which has a starting and ending point along with a width. The constructor should initialize the slope and unit normal vectors.
+
+	- How to find the distance from a point to a line. Start with horizontal and vertical lines then try slanted lines.
+		- Extend this to explain how to detect when a ball hits the wall
+
+2) Ball bouncing off slanted walls?
+	https://3dkingdoms.com/weekly/weekly.php?a=2
+	https://www.fabrizioduroni.it/2017/08/25/how-to-calculate-reflection-vector/
+
+
+
+
+

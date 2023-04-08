@@ -92,7 +92,7 @@ def draw():
     # Question 3 (go through each square and detect if the square hits a wall and modify the direction)
     for s in squares:
         l = s.length
-        ball = Ball(s.position.x + l, s.position.y + l, l / 2.0, 0, Vector2D(0, 0))
+        ball = Ball(s.position.x + l / 2.0, s.position.y + l / 2.0, l / 2.0, 0, Vector2D(0, 0))
         # Check top side
         if cd.wallAndBall(topWall, ball):
             s.direction.y = s.direction.y * -1.0

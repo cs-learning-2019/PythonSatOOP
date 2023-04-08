@@ -6,8 +6,13 @@ class CollisionDetector:
     # Question 2 (hit detection between a wall and ball)
     def wallAndBall(self, wall, ball):
         # First check to see if the ball is even in the rectangle spanned by the line
-        if not self.isInInterval(wall.startPosition.x - wall.thickness, wall.endPosition.x + wall.thickness, ball.position.x) or \
-        not self.isInInterval(wall.startPosition.y - wall.thickness, wall.endPosition.y + wall.thickness, ball.position.y):
+        x = [wall.startPosition.x, wall.endPosition.x]
+        x.sort()
+        y = [wall.startPosition.y, wall.endPosition.y]
+        y.sort()
+        tolerance = wall.thickness + 20
+        if not self.isInInterval(x[0] - tolerance, x[1] + tolerance, ball.position.x) or \
+        not self.isInInterval(y[0] - tolerance, y[1] + tolerance, ball.position.y):
             return False
         
         # Find the distance between the position of the ball and the wall

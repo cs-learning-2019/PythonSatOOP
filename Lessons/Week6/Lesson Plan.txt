@@ -1,0 +1,18 @@
+1) Review any concepts that students are stil confused about
+- Distance from point to line?
+- Position vector vs displacement vectors
+- Velocity vector is just speed * direction vector
+- Dot product
+
+2) Take up HW
+
+3) Ball bouncing off slanted walls?
+	https://3dkingdoms.com/weekly/weekly.php?a=2
+	https://www.fabrizioduroni.it/2017/08/25/how-to-calculate-reflection-vector/
+
+4) Intro to AI for video games
+
+
+
+
+

@@ -1,0 +1,10 @@
+Using the given starter code answer the following questions.
+
+1) Edit the code so that the cannon can move using WASD. Take a look at Week 1 Complex_user_interactions to review how to do this.
+
+2) Edit the code so that the cannon has a laser targeting system that shows how the ball will move after one bounce
+
+3) Edit the code so that if two balls touch each other they blow up. You can just simply make the balls disappear but removing it from the list of balls.
+
+4) Edit the code so that balls explode (disappear) on the second bounce. The first time the ball hits a wall it will bounce but the second time it hits
+   a wall the ball will disappear.

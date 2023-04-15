@@ -1,3 +1,5 @@
+The HW is same as last week (try question 2 again)
+
 Using the given starter code answer the following questions.
 
 1) Edit the code so that the cannon can move using WASD. Take a look at Week 1 Complex_user_interactions to review how to do this.
@@ -8,3 +10,11 @@ Using the given starter code answer the following questions.
 
 4) Edit the code so that balls explode (disappear) on the second bounce. The first time the ball hits a wall it will bounce but the second time it hits
    a wall the ball will disappear.
+
+For question 2
+1) Loop over all walls and find all the point of contacts between the walls and the tanks laser
+2) Go through all the POCs and find the one with the minimal distance to the tank
+3) Draw a line from the end position of the cannon to the POC
+4) find the reflection vector of the laser bouncing off the target wall (the wall with the closest POC)
+5) compute the end position of the laser
+6) draw a line from the POC to the end position of the laser

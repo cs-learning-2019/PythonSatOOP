@@ -1,0 +1,7 @@
+HW
+
+1) Add hit detection between the tank body and the walls so that the tank can not go through walls. Hint: use an approximation technique.
+2) Program the AI for the EasyTank
+- The tank should move on its own and avoid bullets. Make sure the tank does not go through walls (this should have already been done in step 1)
+- The tank should turn its cannon and aim it at you
+- The tank should attempt to shoot you

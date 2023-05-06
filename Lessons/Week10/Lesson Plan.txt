@@ -1,0 +1,23 @@
+1) EasyTank AI
+- Tank avoid bullets by looking at distance to bullets
+- Tank aim cannon with tolerance
+- Tank shooting
+- Show demo of ball dodging other balls
+- Show second demo where a ball tries to reach goal zone without being hit by balls.
+  This will demonstrate the idea behind taking a Linear combination of differnt factors.
+
+2) HardTank AI
+- How to find the angle between two direction vectors
+- Tank avoid bullets considering bullet direction using linear combination of bullet distance and directions. 
+- Tank shooting bullet that is super close to it
+
+3) Challenge: make the hard tank agreesive so it tries to get closer to you.
+
+4) Tanks should die when shot
+
+
+
+
+
+
+

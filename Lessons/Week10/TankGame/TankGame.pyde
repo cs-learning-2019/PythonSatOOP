@@ -11,6 +11,7 @@ from Wall import *
 from Square import *
 from Color import *
 from EasyTank import *
+from HardTank import *
 
 # Pre-defined colors
 darkGreen = Color(95, 155, 28)
@@ -20,6 +21,7 @@ blue = Color(97, 184, 252)
 red = Color(255, 0, 0)
 brown = Color(196, 145, 14)
 lightBrown = Color(240, 177, 17)
+lightRed = Color(250, 103, 103)
 
 # Define the walls
 topWall = Wall(10, 10, 1690, 10, 20, blue)
@@ -34,8 +36,9 @@ cp = CollisionProcessor()
 playerTank = Tank(200, 450, darkGreen, lightGreen, yellow, red)
 bullets = []
 
-tank1 = EasyTank(1000, 450, brown, lightBrown, yellow, red)
-badTanks = [tank1]
+#tank1 = EasyTank(1000, 450, brown, lightBrown, yellow, red)
+tank2 = HardTank(1000, 650, red, lightRed, yellow, red)
+badTanks = [tank2]
 
 def setup():
     size(1700, 900)

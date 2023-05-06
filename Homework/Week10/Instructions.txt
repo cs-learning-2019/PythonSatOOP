@@ -1,5 +1,5 @@
 HW
-
+0) Tanks should die when shot (just make the tanks disappear) (if you get shot then the game is over and screen turns black)
 1) Edit the code from week 10 lesson. Add walls to the game and build you own level.
 2) Add a bunch of bad tanks and place them in the level
 3) Play the level and win

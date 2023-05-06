@@ -1,14 +1,16 @@
 from Cannon import *
 from Bullet import *
 from Tank import *
+from Vector2D import *
 
-class EasyTank(Tank):
+class HardTank(Tank):
     def __init__(self, x, y, cannonColor, bodyColor, bulletColor, laserColor):
-        super(EasyTank, self).__init__(x, y, cannonColor, bodyColor, bulletColor, laserColor)
-        self.bullets = 1
+        super(HardTank, self).__init__(x, y, cannonColor, bodyColor, bulletColor, laserColor)
+        self.bullets = 3
         self.cannon = Cannon(x, y, cannonColor, laserColor, False)
         self.aimTolerance = 400  # Feel free to modify this
-        self.fireChance = 2 # Percentage of how often the tank will shoot 
+        self.fireChance = 1 # Percentage of how often the tank will shoot
+        self.speed = 4
     
     def computeNextMove(self, walls, bullets, playerTank):
         # Compute the movement of the tank to dodge bullets (maximize profit)
@@ -24,14 +26,34 @@ class EasyTank(Tank):
             if self.isTankTouchingWall(walls, newBodyX, newBodyY):
                 continue
             for bullet in bullets:
-                d = dist(newBodyX, newBodyY, bullet.position.x, bullet.position.y)
-                if d > 600:
+                # First check to see if the bullet is moving away from you. If it is then we can just ignore it
+                d1 = dist(self.position.x, self.position.y, bullet.position.x, bullet.position.y)
+                newBulletX = bullet.position.x + bullet.speed * bullet.direction.x
+                newBulletY = bullet.position.y + bullet.speed * bullet.direction.y
+                d2 = dist(self.position.x, self.position.y, bullet.position.x, bullet.position.y)
+                if d2 > d1:
                     continue
-                elif d <= 50:
-                    score += -1.0 / 0.0000000000000001
-                else:
+                
+                d = dist(newBodyX, newBodyY, newBulletX, newBulletY)
+                if d < 50:
+                    score += -9999999999
+                elif d <= 800:
                     score += -1.0 / d
-            
+    
+                if move != [0, 0, 0, 0] and d <= 600:  # We only really care about the direction if the bullet gets close enough
+                    v1 = bullet.direction
+                    v2 = Vector2D(newBodyX - self.position.x, newBodyY - self.position.y).getUnitVector()
+                    n = (v1 * v2) / (v1.getMagnitude() * v2.getMagnitude())
+                    if n < 0:
+                        n = n * -1.0 # We skip since the bullet would be moving away from us if n is negative
+                    score += (1 - n) * 5000
+                    
+                # We also need to avoid moving into the direction of a bullet
+                displacementFromBulletStartToTank = Vector2D(newBodyX, newBodyY) - bullet.position
+                projectionOfDisplacementOntoBulletDirection = (displacementFromBulletStartToTank * bullet.direction) * bullet.direction
+                distance = (displacementFromBulletStartToTank - projectionOfDisplacementOntoBulletDirection).getMagnitude()
+                score += distance * 500
+                
             if move != [0, 0, 0, 0]:
                 score += 0.005
             
@@ -63,7 +85,6 @@ class EasyTank(Tank):
         self.cannon.endPosition = self.cannon.startPosition + lenCorrectDisplacementVector
         self.cannon.directionVector = displacementVector.getUnitVector()
         
-    
         # Calculate if the tank should shoot
         # Since this is the easy tank we only give it 1 bullet
         # The tank will take a shoot with a chance of self.fireChance regardless of where the cannon is pointed

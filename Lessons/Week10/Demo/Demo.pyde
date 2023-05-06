@@ -76,7 +76,7 @@ def draw():
         if distance == 0:
             value = 0
         else:
-            value = 1.0 / distance * 0.1
+            value = 1.0 / distance * 0.09
         score += value
         
         if bestScore == None or bestScore < score:

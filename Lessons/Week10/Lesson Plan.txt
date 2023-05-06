@@ -13,7 +13,7 @@
 
 3) Challenge: make the hard tank agreesive so it tries to get closer to you.
 
-4) Tanks should die when shot
+
 
 
 

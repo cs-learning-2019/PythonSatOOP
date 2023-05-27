@@ -26,13 +26,80 @@ def setup():
     print("The image has a height of:" + str(img.height))
     size(472, 314)
 
-do_once = False
+do_once = True
 done = False
 def draw():
     global do_once, done
     if not done or not do_once:
-        draw5()
+        draw6()
         done = True
+
+def draw6():
+    global img
+    img_new = createImage(img.width,img.height,RGB)
+    for x in range(img.width):
+        for y in range(img.height):
+            rs = []
+            bs = []
+            gs = []
+            totalWeight = 0
+            
+            loc = x + y*img.width
+            r = red(img.pixels[loc])
+            g = green(img.pixels[loc])
+            b = blue(img.pixels[loc])
+            rs.append(r)
+            gs.append(g)
+            bs.append(b)
+            totalWeight += 1
+            
+            # Bottom Pixel
+            if (x + (y+1)*img.width) <= 148207:
+                loc1 = (x + (y+1)*img.width)
+                rs.append(red(img.pixels[loc1]) * 5)
+                gs.append(green(img.pixels[loc1]) * 5)
+                bs.append(blue(img.pixels[loc1]) * 5)
+                totalWeight += 5
+            
+            # Right Pixel
+            if  ((x+1) + y*img.width) <= 148207:
+                loc3 = ((x+1) + y*img.width)
+                r3 = red(img.pixels[loc3]) * 5
+                g3 = green(img.pixels[loc3]) * 5
+                b3 = blue(img.pixels[loc3]) * 5
+                rs.append(r3)
+                gs.append(g3)
+                bs.append(b3)
+                totalWeight += 5
+            
+            # Top pixel
+            if (x + (y-1)*img.width) >= 0:
+                loc4 = (x + (y-1)*img.width)
+                r4 = red(img.pixels[loc4]) * 5
+                g4 = green(img.pixels[loc4]) * 5
+                b4 = blue(img.pixels[loc4]) * 5
+                rs.append(r4)
+                gs.append(g4)
+                bs.append(b4)
+                totalWeight += 5
+            
+            # Left pixel
+            if ((x-1) + y*img.width) >= 0:
+                loc2 = ((x-1) + y*img.width)
+                r2 = red(img.pixels[loc2]) * 5
+                g2 = green(img.pixels[loc2]) * 5
+                b2 = blue(img.pixels[loc2]) * 5
+                rs.append(r2)
+                gs.append(g2)
+                bs.append(b2)
+                totalWeight += 5
+            
+            newR = (sum(rs)/totalWeight)
+            newG = (sum(gs)/totalWeight)
+            newB = (sum(bs)/totalWeight)
+            img_new.pixels[loc] = color(newR,newG,newB)
+    img_new.updatePixels()
+    image(img_new, 0, 0)
     
 #--------------------------------------------------------------------------------------
 # Flips image from left to right
@@ -57,88 +124,4 @@ def draw1():
     #tint(255,255, 255, 255)
     #tint(100, 255)
     image(img_new, 0, 0)
-
-#--------------------------------------------------------------------------------------
-# Reverse image
-def draw2():
-    global img
-    img_new = createImage(img.width,img.height,RGB)
-    img_new.loadPixels()
-    img.loadPixels()
-    for y in range(img.height):  # y = row_num
-        for x in range(img.width): # x = col_num
-            loc = (x + (y * img.width))
-    
-            r = red(img.pixels[loc])
-            g = green(img.pixels[loc])
-            b = blue(img.pixels[loc])
-    
-            # Set the display pixel to the image pixel
-            img_new.pixels[loc] =  color(r,g,b)  
-    img_new.pixels = img_new.pixels[::-1]       
-    img_new.updatePixels()   
-    background(img_new) 
-
-#--------------------------------------------------------------------------------------
-# Flash light on picture
-def draw3():
-    global img
-    img.loadPixels()
-    img_new = createImage(img.width,img.height,RGB)
-    for x in range(img.width):
-        for y in range(img.height):
-            # Calculate the 1D pixel location
-            loc = x + y*img.width
-            # Get the R,G,B values from image
-            r = red(img.pixels[loc])
-            g = green(img.pixels[loc])
-            b = blue(img.pixels[loc])
-            
-            # Calculate an amount to change brightness 
-            # based on proximity to the mouse
-            distance = dist(x,y,mouseX,mouseY)
-            adjustBrightness = (200 - distance)/200
-            r *= adjustBrightness
-            g *= adjustBrightness
-            b *= adjustBrightness
-        
-            # Constrain RGB to between 0-255
-            r = constrain(r,0,255)
-            g = constrain(g,0,255)
-            b = constrain(b,0,255)
-            
-            img_new.pixels[loc] = color(r,g,b)
-            
-    img_new.updatePixels()
-    background(img_new)
-    
-#--------------------------------------------------------------------------------------
-# Converts image to black and white
-def draw4(): 
-    # We are going to look at both image's pixels
-    img.loadPixels()
-    img_new = createImage(img.width,img.height,ALPHA)
-  
-    for x in range(img.width):
-        for y in range(img.height): 
-            loc = x + y*img.width
-            img_new.pixels[loc]  = color(brightness(img.pixels[loc]))
-
-    img_new.updatePixels()
-    image(img_new, 0, 0)
-
-#--------------------------------------------------------------------------------------
-# Point art
-def draw5(): 
-    global img
-    x = int(random(img.width))
-    y = int(random(img.height))
-    loc = x + y*img.width
-    r = red(img.pixels[loc])
-    g = green(img.pixels[loc])
-    b = blue(img.pixels[loc])
-    
-    fill(r, g, b, 50)
-    noStroke()
-    ellipse(x, y, 20, 20)
     

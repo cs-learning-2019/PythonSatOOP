@@ -3,9 +3,9 @@
 2) Edge detection
 https://en.wikipedia.org/wiki/Canny_edge_detector
 
-3) Extra time: Green Screens
+3) Extra time: https://en.wikipedia.org/wiki/Seam_carving
 
-4) Extra time: https://en.wikipedia.org/wiki/Seam_carving
+4) Extra time: Green Screens
 
 
 

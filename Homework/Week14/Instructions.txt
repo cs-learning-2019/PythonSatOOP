@@ -1,0 +1,13 @@
+1) Use edge detection and a queue to write a program to count the number cells in a picture
+Here is the high-level algorithm
+1. Start from the first pixel in the image. Set current label to 1. Go to (2).
+
+2. If this pixel is a foreground pixel (edge or 255) and it is not already labelled, give it the current label
+and add it as the first element in a queue, then go to (3). If it is a background pixel (not edge or 0) or
+it was already labelled, then repeat (2) for the next pixel in the image.
+
+3. Pop out an element from the queue, and look at its neighbours (the 8 neighbors around).
+If a neighbour is a foreground pixel and is not already labelled, give it the current label
+and add it to the queue. Repeat (3) until there are no more elements in the queue.
+
+4. Go to (2) for the next pixel in the image and increment current label by 1.

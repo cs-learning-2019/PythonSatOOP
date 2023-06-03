@@ -1,0 +1,30 @@
+1) Edge detection
+- Detecting edges can be useful for many different applications like self-driving cars and object detection
+- Edges are just changes in image intensity across neighbouring pixels
+- The sobel filter can be used to find edges. M_x gives vertical edges while M_y gives horizontal edges. Together they give most edges.
+- The gradient of an image is just a vector [a, b]. We can calculate the gradient for each pixel and a comes from M_x and b comes from M_y.
+- Since the gradient is a vector we can find its direction. This direction is normal to the edge. When calculating the angle
+it will be anywhere between 90 deg to -90 deg. If it is negative we just do add 180 to get the positive angle (should be between 90 and 180)
+- Also we can calculate the magnitude and that tells use the strength of the edge.
+- It is best to blur the image first before finding edges to reduce noise
+- The Canny Edge Detector is a well-known and used method https://en.wikipedia.org/wiki/Canny_edge_detector
+
+2) Lets look at code for a very simple edge detector
+For us edge detection will be done as follows
+1) Blur the image
+2) Use Sobel filter to find image gradient
+3) For each pixel if the gradient magnitude is greater than some hard coded threshold we set the pixel to 255 otherwise we set it to 0
+
+3) Queue and connected component labeling
+
+4) Extra time --> Seam Carving: https://en.wikipedia.org/wiki/Seam_carving
+
+
+
+
+
+
+
+
+
+

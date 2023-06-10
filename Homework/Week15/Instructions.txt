@@ -1,0 +1,6 @@
+1) Seam carving [Final project]
+- The original image has a width of 505px and a height of 339 pixels.
+- Program seam carving from scratch (you can use my code for calculating image gradient magnitude)
+- Using your program make the image have a width of 350px
+
+2) What is the advantage of using seam carving when compressing the image?

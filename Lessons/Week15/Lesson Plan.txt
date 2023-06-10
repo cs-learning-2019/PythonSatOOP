@@ -1,0 +1,15 @@
+1) Improved edge detection code
+
+2) Take up homework (counting number of cells using edge detection and connected component labelling)
+
+3) Seam Carving: https://en.wikipedia.org/wiki/Seam_carving
+
+
+
+
+
+
+
+
+
+

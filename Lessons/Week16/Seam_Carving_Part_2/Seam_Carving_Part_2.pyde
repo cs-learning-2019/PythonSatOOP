@@ -1,62 +1,80 @@
 # Image Processing
-# This projects takes a photo and detects the edges
+# Seam Carving PART 1
 # Author: Kavan Lam
-# Date: June 10, 2023
-from Queue import *
-
+# Date: June 17, 2023
 def setup():
-    global img, done
+    global img, done, targetWidth
     size(700, 700)
-    img = loadImage("Cells.png")
+    img = loadImage("Castle.PNG")
     img.loadPixels()
     done = False
+    targetWidth = 400
     
 def draw():
-    global img, done
+    global img, done, targetWidth
     if not done:
-        img_new = createImage(img.width,img.height,RGB)
+        currentWidth = img.width
         edges = detectEdges(img)
-        print("There are " + str(countConnectedComponents(edges, img.width,img.height)) + " cells")
-        for y in range(img.height):
-            for x in range(img.width):
-                loc = x + (y * img.width)
-                img_new.pixels[loc] = color(edges[loc])
-        image(img_new,0,0)
+        for i in range(img.width - targetWidth):
+            loadPixels()
+            seam = computeSeam(edges, currentWidth, img.height)
+            
+            currentWidth -= 1
+            newEdges = []
+            imgNew = createImage(currentWidth, img.height, RGB)
+            for index in seam:
+                edges[index] = None
+                img.pixels[index] = -1
+                    
+            nextLoc = 0
+            for loc in range(len(edges)):
+                if edges[loc] is None:
+                    continue
+                newEdges.append(edges[loc])
+                imgNew.pixels[nextLoc] = img.pixels[loc]
+                nextLoc += 1
+                
+            edges = newEdges
+            img = imgNew
+            updatePixels() 
+                
+        image(img,0,0)
         done = True
 
-def countConnectedComponents(edges, imgWidth, imgHeight):
-    q = Queue()
-    curLabel = 0
-    pixelLabel = [None] * len(edges)
-    
+# Compute the seam according to the algorithm here https://en.wikipedia.org/wiki/Seam_carving
+def computeSeam(edges, imgWidth, imgHeight):
+    minCost = [None] * len(edges)
     for y in range(imgHeight):
         for x in range(imgWidth):
             loc = x + (y * imgWidth)
-            # Skip this pixel if it already has a label
-            if not(pixelLabel[loc] is None):
-                continue
-            
-            if (edges[loc] == 0):
-                pixelLabel[loc] = -1
-                continue
-            
-            curLabel += 1
-            pixelLabel[loc] = curLabel
-            q.enqueue((x, y))
-            # We will loop until there are no more pieces of the cell to look at
-            while not q.isEmpty():
-                curPosition = q.dequeue()
-                a = curPosition[0]
-                b = curPosition[1]
-                adjacentPositions = [(a-1, b-1), (a, b-1), (a+1, b-1), (a-1, b), (a+1, b), (a-1, b+1), (a, b+1), (a+1, b+1)]
-                for adjPos in adjacentPositions:
-                    newLoc = adjPos[0] + (adjPos[1] * imgWidth)
-                    if newLoc >= 0 and newLoc <= ((imgWidth * imgHeight) - 1):
-                        if (edges[newLoc] == 255 and pixelLabel[newLoc] is None):
-                            pixelLabel[newLoc] = curLabel
-                            # We add the adjacent position to the queue since we want to process the neighbours of that pixel as well
-                            q.enqueue(adjPos)         
-    return curLabel
+            if y == 0:
+                minCost[loc] = (edges[loc], None)
+            else:
+                neighbors = [(x-1) + ((y-1) * imgWidth), (x+1) + ((y-1) * imgWidth)] 
+                minNeighbor = (minCost[x + ((y-1) * imgWidth)][0], x + ((y-1) * imgWidth)) # (Min cost, index)
+                for neighbor in neighbors:
+                    if neighbors >= 0 and neighbors <= len(edges) - 1:
+                        if minCost[neighbor][0] < minNeighbor[0]:
+                            minNeighbor = (minCost[neighbor][0], neighbor)
+                minCost[loc] = (minNeighbor[0] + edges[loc], minNeighbor[1])
+    
+    y = imgHeight - 1
+    seamStartLoc = (0, y)
+    minTotalCost = minCost[0 + (y * imgWidth)][0]
+    for x in range(imgWidth):
+        if minCost[x + (y * imgWidth)][0] < minTotalCost:
+            seamStartLoc = (x, y)
+            minTotalCost = minCost[x + (y * imgWidth)][0]
+    
+    seam = [seamStartLoc[0] + (seamStartLoc[1] * imgWidth)]
+    seamCurLoc = seamStartLoc[0] + (seamStartLoc[1] * imgWidth)
+    while True:
+        if minCost[seamCurLoc][1] is None:
+            break
+        seam.append(minCost[seamCurLoc][1])
+        seamCurLoc = minCost[seamCurLoc][1]
+        
+    return seam
 
 # Slightly blurs an image using a 3x3 Gaussian filter
 def imageBlur(imgArray, imgWidth, imgHeight):
@@ -105,13 +123,6 @@ def detectEdges(img):
     imgWidth = img.width
     imgHeight = img.height
     blurredImage = imageBlur(imageIntensity, imgWidth, imgHeight)
-    gradientMagnitude = imageGradientMagnitude(blurredImage, imgWidth, imgHeight)
-    gradientThreshold = 50
-    for i in range(len(gradientMagnitude)):
-        if gradientMagnitude[i] > gradientThreshold:
-            gradientMagnitude[i] = 255
-        else:
-            gradientMagnitude[i] = 0
-                    
+    gradientMagnitude = imageGradientMagnitude(blurredImage, imgWidth, imgHeight)        
     return gradientMagnitude
                 
